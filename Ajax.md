@@ -74,3 +74,59 @@ Ajax(Asynchronous Javascript And XML)
   
     XMLHttpRequest 객체를 얻은 뒤, url을 통해 요청하고 응답을 받으면 응답 결과에 맞는 함수를 실행하는 구조로 되어 있다. 
     Ajax가 효율적이라고는 해도 이렇게 하게 될 경우, 코드가 길어지기 때문에 jQuery에서 그 문제를 해결해주고 있다.
+    
+    예시로 보는 AJAX - 1
+    ```javascript
+      // This function gets invoked when server sends the response
+      function reqListener (e) {
+          console.log(e.currentTarget.response);
+      }
+
+      var oReq = new XMLHttpRequest();
+      var serverAddress = "https://hacker-news.firebaseio.com/v0/topstories.json";
+
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", serverAddress);
+      oReq.send();
+      '''
+      
+      
+위의 예제는 자바스크립트를 이용하여 특정 서버에 요청을 보내고 그에 대한 자료를 성공적으로 받아올 수 있음을 확인해볼 수 있다. 위 예제에서는 XMLHttpRequest를 이용하여 요청을 보냈지만 일반적으로는 아래와 같이 jQuery나 기타 AJAX 기능이 내장되어 있는 라이브러리를 이용하여 AJAX 요청을 처리한다.
+
+```javascript
+      var serverAddress = 'https://hacker-news.firebaseio.com/v0/topstories.json';
+
+      // jQuery의 .get 메소드 사용
+      $.ajax({
+          url: ,
+          type: 'GET',
+          success: function onData (data) {
+              console.log(data);
+          },
+          error: function onError (error) {
+              console.error(error);
+          }
+      });
+    ```
+    
+    예시로 보는 AJAX - 2
+    ```javascript 
+      var xhr= new XMLHttpRequest();
+
+      xhr. onreadystatechange = function(){
+	      if(xhr.readyState===4){
+    	      document.getElementById(‘ajax’).innerHTML= xhr.responseText;
+          }
+      }
+
+      xhr.open(‘GET’,”sidebar.html”);  // html메소드와 URL을 보낸다. (open함수는 준비를 시키는것이지 보내는 것은 아니다.)
+      xhr.send(); 
+      ```
+      
+      
+위의 예제는 AJAX가 XHR객체를 형성하고 이 객체의 콜백을 만들고 HTML메소드와 URL을 결정한 뒤, XHR객체의 메소드로 정보를 보내는 방식이다.
+
+var xhr= new XMLHttpRequest(); : browser response를 얻었을 때 작동하는 함수 (callback 함수)
+xhr.onreadystatecjange : AJAX Request에 어떠한 변화라도 있으면 작동한다. (callback 함수를 포함하고 있다고 생각하면 된다.)
+xhr.readyState : response가 돌아왔는지 아닌지를 추적하는 property
+
