@@ -77,6 +77,7 @@ Ajax(Asynchronous Javascript And XML)
     
     예시로 보는 AJAX - 1
     ```{.javascript}
+    
       // This function gets invoked when server sends the response
       function reqListener (e) {
           console.log(e.currentTarget.response);
@@ -93,7 +94,8 @@ Ajax(Asynchronous Javascript And XML)
       
 위의 예제는 자바스크립트를 이용하여 특정 서버에 요청을 보내고 그에 대한 자료를 성공적으로 받아올 수 있음을 확인해볼 수 있다. 위 예제에서는 XMLHttpRequest를 이용하여 요청을 보냈지만 일반적으로는 아래와 같이 jQuery나 기타 AJAX 기능이 내장되어 있는 라이브러리를 이용하여 AJAX 요청을 처리한다.
 
-```javascript
+```{.javascript}
+
       var serverAddress = 'https://hacker-news.firebaseio.com/v0/topstories.json';
 
       // jQuery의 .get 메소드 사용
@@ -111,7 +113,8 @@ Ajax(Asynchronous Javascript And XML)
     
     예시로 보는 AJAX - 2
     
-    ```javascript 
+    ```{.javascript} 
+    
       var xhr= new XMLHttpRequest();
 
       xhr. onreadystatechange = function(){
