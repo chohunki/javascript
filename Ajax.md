@@ -76,7 +76,7 @@ Ajax(Asynchronous Javascript And XML)
     Ajax가 효율적이라고는 해도 이렇게 하게 될 경우, 코드가 길어지기 때문에 jQuery에서 그 문제를 해결해주고 있다.
     
     예시로 보는 AJAX - 1
-    ```javascript
+    ```{.javascript}
       // This function gets invoked when server sends the response
       function reqListener (e) {
           console.log(e.currentTarget.response);
@@ -88,7 +88,7 @@ Ajax(Asynchronous Javascript And XML)
       oReq.addEventListener("load", reqListener);
       oReq.open("GET", serverAddress);
       oReq.send();
-      '''
+      ```
       
       
 위의 예제는 자바스크립트를 이용하여 특정 서버에 요청을 보내고 그에 대한 자료를 성공적으로 받아올 수 있음을 확인해볼 수 있다. 위 예제에서는 XMLHttpRequest를 이용하여 요청을 보냈지만 일반적으로는 아래와 같이 jQuery나 기타 AJAX 기능이 내장되어 있는 라이브러리를 이용하여 AJAX 요청을 처리한다.
@@ -107,9 +107,10 @@ Ajax(Asynchronous Javascript And XML)
               console.error(error);
           }
       });
-    ```
+```
     
     예시로 보는 AJAX - 2
+    
     ```javascript 
       var xhr= new XMLHttpRequest();
 
